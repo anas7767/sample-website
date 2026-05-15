@@ -1,47 +1,304 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rahul Sharma</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: sans-serif; background: #0f0f0f; color: #f0f0f0; display: flex; justify-content: center; padding: 60px 20px; }
-    .container { max-width: 650px; width: 100%; }
-    h1 { font-size: 2rem; margin-bottom: 6px; }
-    .sub { color: #ff6600; font-size: 1rem; margin-bottom: 24px; }
-    .label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #666; margin: 28px 0 10px; }
-    p { color: #bbb; line-height: 1.7; }
-    .card { background: #1a1a1a; border-left: 3px solid #ff6600; padding: 14px 18px; margin-bottom: 12px; border-radius: 4px; }
-    .card strong { color: #f0f0f0; }
-    .card p { margin-top: 4px; font-size: 0.9rem; }
-    .links a { color: #ff6600; margin-right: 16px; text-decoration: none; font-size: 0.95rem; }
-    footer { margin-top: 40px; font-size: 12px; color: #444; }
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1>Rahul Sharma</h1>
-  <p class="sub">Builder — Akola, India</p>
-  <p>Main ek passionate founder hoon jo real-world problems solve karna chahta hai. YC ke liye apply kar raha hoon.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feri | B2B FMCG Ecommerce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=github-final-1" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menuButton" aria-label="Open categories">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-  <div class="label">Building</div>
-  <div class="card">
-    <strong>SmartKisan — AI for Farmers</strong>
-    <p>Farmers apni fasal ki photo upload karte hain, AI Hindi mein bimari aur solution batata hai.</p>
-  </div>
-  <div class="card">
-    <strong>PayEasy — UPI for small shops</strong>
-    <p>Chhote dukandaron ke liye zero-fee payment tool, offline bhi kaam karta hai.</p>
-  </div>
+        <a class="brand" href="#" aria-label="Feri home">
+          <span class="brand-mark">F</span>
+          <span>
+            <strong>Feri</strong>
+            <small>B2B FMCG</small>
+          </span>
+        </a>
 
-  <div class="label">Links</div>
-  <div class="links">
-    <a href="https://github.com/tumhara-username">GitHub</a>
-    <a href="mailto:tumhari@email.com">Email</a>
-  </div>
+        <form class="search" id="searchForm">
+          <select id="searchCategory" aria-label="Search category">
+            <option value="all">All</option>
+            <option value="Staples">Staples</option>
+            <option value="Beverages">Beverages</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Personal Care">Personal Care</option>
+            <option value="Home Care">Home Care</option>
+            <option value="Packaging">Packaging</option>
+          </select>
+          <input id="searchInput" type="search" placeholder="Search FMCG products, brands, SKUs" />
+          <button type="submit" aria-label="Search">Search</button>
+        </form>
 
-  <footer>rahul@example.com — Hosted on GitHub Pages</footer>
-</div>
-</body>
+        <button class="route-pill" aria-label="Current delivery route">
+          <span>Deliver to</span>
+          <strong>Bengaluru Route 4</strong>
+        </button>
+
+        <div class="top-actions">
+          <button class="plain-action" id="accountButton">
+            <span>Verified</span>
+            <strong>Aarav Retail</strong>
+          </button>
+          <button class="cart-button" id="cartButton" aria-label="Open cart">
+            <span class="cart-icon">Cart</span>
+            <strong id="cartCount">0</strong>
+          </button>
+        </div>
+      </header>
+
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-title">Shop by category</div>
+        <nav id="categoryList" aria-label="Product categories"></nav>
+
+        <section class="buyer-card">
+          <span class="card-kicker">Feri Plus</span>
+          <strong>Member pricing unlocked</strong>
+          <p>GST invoice, FMCG bulk slabs, route delivery, easy returns, and credit review.</p>
+        </section>
+
+        <section class="route-card">
+          <span>Next delivery slot</span>
+          <strong>Tomorrow, 8 AM - 12 PM</strong>
+          <p>Free delivery above Rs. 25,000</p>
+        </section>
+      </aside>
+
+      <main>
+        <section class="notice-bar" aria-label="Store status">
+          <span>Store KYC approved</span>
+          <strong>Credit available: Rs. 2,50,000</strong>
+          <span>Cash pickup and UPI supported</span>
+        </section>
+
+        <section class="hero-board" aria-label="Business offers">
+          <article class="hero-offer">
+            <span class="offer-label">Feri wholesale week</span>
+            <h1>Stock fast moving FMCG with better margins</h1>
+            <p>Buy top staples, snacks, beverages, personal care, and home care cases with retailer-first pricing.</p>
+            <div class="hero-actions">
+              <button id="viewDealsButton">View Best Margins</button>
+              <button class="secondary-action" data-offer-category="Staples">Shop Staples</button>
+            </div>
+          </article>
+
+          <article class="offer-card accent-yellow" data-offer-category="Snacks">
+            <span>Snack counter refill</span>
+            <strong>Up to 40% retail margin</strong>
+            <p>Display boxes, noodles, biscuits, and quick-turnover packs.</p>
+          </article>
+
+          <article class="offer-card accent-green" data-offer-category="Home Care">
+            <span>Home care combo</span>
+            <strong>Buy 3+ cases, save extra</strong>
+            <p>Detergent, dishwash, cleaners, and insect control SKUs.</p>
+          </article>
+        </section>
+
+        <section class="promise-row" aria-label="Feri services">
+          <article>
+            <span>01</span>
+            <strong>Doorstep delivery</strong>
+            <p>Route-wise delivery windows with order tracking.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>GST-ready billing</strong>
+            <p>Business invoice details are saved for repeat orders.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>Credit facility</strong>
+            <p>Pay now, pay later, UPI, card, or cash pickup.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>Assured quality</strong>
+            <p>Brand-led assortment with return support.</p>
+          </article>
+        </section>
+
+        <section class="brand-rail" aria-label="Popular FMCG brands">
+          <div>
+            <span>Brand stores</span>
+            <strong>Quick order from trusted FMCG brands</strong>
+          </div>
+          <button class="brand-chip active" data-brand="all">All</button>
+          <button class="brand-chip" data-brand="HUL">HUL</button>
+          <button class="brand-chip" data-brand="ITC">ITC</button>
+          <button class="brand-chip" data-brand="Tata Consumer">Tata</button>
+          <button class="brand-chip" data-brand="Britannia">Britannia</button>
+          <button class="brand-chip" data-brand="Nestle">Nestle</button>
+          <button class="brand-chip" data-brand="Dabur">Dabur</button>
+          <button class="brand-chip" data-brand="Godrej">Godrej</button>
+          <button class="brand-chip" data-brand="Marico">Marico</button>
+          <button class="brand-chip" data-brand="Feri">Feri</button>
+        </section>
+
+        <section class="brand-stores" aria-label="FMCG company logos">
+          <div class="section-head">
+            <span>Company logos</span>
+            <h2>Brand zones</h2>
+          </div>
+
+          <div class="brand-logo-grid">
+            <button class="brand-store" data-brand="ITC" aria-label="Filter ITC products" style="--store-color: #df6b00">
+              <span class="store-logo">I</span>
+            </button>
+
+            <button class="brand-store" data-brand="HUL" aria-label="Filter HUL products" style="--store-color: #2459c4">
+              <span class="store-logo">H</span>
+            </button>
+
+            <button class="brand-store" data-brand="Tata Consumer" aria-label="Filter Tata Consumer products" style="--store-color: #1f6fbf">
+              <span class="store-logo">T</span>
+            </button>
+
+            <button class="brand-store" data-brand="Nestle" aria-label="Filter Nestle products" style="--store-color: #cfaa00">
+              <span class="store-logo">N</span>
+            </button>
+
+            <button class="brand-store" data-brand="Britannia" aria-label="Filter Britannia products" style="--store-color: #a2262f">
+              <span class="store-logo">B</span>
+            </button>
+
+            <button class="brand-store" data-brand="Dabur" aria-label="Filter Dabur products" style="--store-color: #0f8c4a">
+              <span class="store-logo">D</span>
+            </button>
+
+            <button class="brand-store" data-brand="Godrej" aria-label="Filter Godrej products" style="--store-color: #332f90">
+              <span class="store-logo">G</span>
+            </button>
+
+            <button class="brand-store" data-brand="Feri" aria-label="Filter Feri products" style="--store-color: #2874f0">
+              <span class="store-logo store-logo-feri">
+                <span>F</span>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <section class="dashboard">
+          <article class="metric">
+            <span>Open orders</span>
+            <strong>28</strong>
+          </article>
+          <article class="metric">
+            <span>Saved this month</span>
+            <strong>Rs. 42,850</strong>
+          </article>
+          <article class="metric">
+            <span>Credit limit</span>
+            <strong>Rs. 2.5L</strong>
+          </article>
+          <article class="metric">
+            <span>Average dispatch</span>
+            <strong>18h</strong>
+          </article>
+        </section>
+
+        <section class="workspace">
+          <div class="content-head">
+            <div>
+              <span id="resultEyebrow">All wholesale products</span>
+              <h2 id="resultTitle">B2B FMCG ordering for kirana stores and resellers</h2>
+            </div>
+            <div class="filters">
+              <label>
+                Sort
+                <select id="sortSelect">
+                  <option value="popular">Fast moving</option>
+                  <option value="priceLow">Price low to high</option>
+                  <option value="priceHigh">Price high to low</option>
+                  <option value="margin">Best margin</option>
+                </select>
+              </label>
+              <label class="toggle">
+                <input type="checkbox" id="stockToggle" />
+                In stock only
+              </label>
+            </div>
+          </div>
+
+          <div class="layout-grid">
+            <section class="product-grid" id="productGrid" aria-live="polite"></section>
+
+            <aside class="cart-panel" id="cartPanel">
+              <div class="cart-head">
+                <div>
+                  <span>Purchase order</span>
+                  <strong id="cartTitle">Cart is empty</strong>
+                </div>
+                <button class="icon-button" id="closeCartButton" aria-label="Close cart">x</button>
+              </div>
+              <div class="cart-items" id="cartItems"></div>
+              <div class="cart-summary">
+                <div><span>Subtotal</span><strong id="subtotal">Rs. 0</strong></div>
+                <div><span>GST estimate</span><strong id="tax">Rs. 0</strong></div>
+                <div><span>Delivery</span><strong id="delivery">Rs. 0</strong></div>
+                <div class="grand"><span>Total</span><strong id="grandTotal">Rs. 0</strong></div>
+              </div>
+              <div class="cart-note">
+                <strong>Payment options</strong>
+                <span>UPI, card, pay later, cash pickup, or store pickup.</span>
+              </div>
+              <button class="checkout-button" id="checkoutButton">Create Purchase Order</button>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="checkoutDialog">
+      <form method="dialog" class="dialog-card">
+        <button class="icon-button dialog-close" value="cancel" aria-label="Close">x</button>
+        <span>Feri B2B FMCG</span>
+        <h2>Purchase order ready</h2>
+        <p id="checkoutMessage">Your order has been prepared.</p>
+        <div class="order-fields">
+          <label>Business name<input value="Aarav Retail Stores" /></label>
+          <label>GSTIN<input value="29ABCDE1234F1Z5" /></label>
+          <label>Delivery address<textarea>Shop 14, Market Road, Bengaluru</textarea></label>
+        </div>
+        <div class="order-timeline" aria-label="Order timeline">
+          <span>PO created</span>
+          <span>Stock reserved</span>
+          <span>Route dispatch</span>
+        </div>
+        <menu>
+          <button value="cancel">Edit Cart</button>
+          <button class="confirm-button" value="default">Send PO</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <dialog id="accountDialog">
+      <form method="dialog" class="dialog-card account-dialog">
+        <button class="icon-button dialog-close" value="cancel" aria-label="Close">x</button>
+        <span>Business account</span>
+        <h2>Aarav Retail Stores</h2>
+        <div class="account-grid">
+          <article><span>KYC</span><strong>Approved</strong></article>
+          <article><span>Credit</span><strong>Rs. 2.5L</strong></article>
+          <article><span>GSTIN</span><strong>Saved</strong></article>
+          <article><span>Route</span><strong>BLR-04</strong></article>
+        </div>
+        <menu>
+          <button class="confirm-button" value="default">Done</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="app.js?v=github-final-1"></script>
+  </body>
 </html>
